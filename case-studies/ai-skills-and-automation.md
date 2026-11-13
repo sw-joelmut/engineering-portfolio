@@ -2,7 +2,9 @@
 
 [Back](../README.md) · Microsoft Agents · 2026
 
-I built a workflow to move Teams .NET samples to the Agents SDK. It separates planning, implementation and publication: the plan pins the source revisions, an agent applies the changes, and validation runs before a patch is published for review. The migration job has no repository-write credentials.
+The Teams SDK changes frequently and introduces breaking changes. We needed to keep our Teams samples built with the Agents SDK up to date as those changes came in.
+
+I built an AI-assisted workflow to automate that work. It separates planning, implementation and publication: the plan pins the source revisions, an agent applies the changes, and validation runs before a patch is published for review. The migration job has no repository-write credentials.
 
 The contribution included seven migrated samples. I checked the workflow with automated tests and manual runs; the PR records 19 passing automation tests, with the optional live integration test skipped.
 

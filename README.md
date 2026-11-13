@@ -4,21 +4,21 @@ I'm a Senior Software Engineer at SOUTHWORKS, working with Microsoft as a vendor
 
 [GitHub](https://github.com/sw-joelmut) · [LinkedIn](https://www.linkedin.com/in/joel-mut/)
 
-## Automating Teams sample migrations
+## Keeping Teams samples up to date
 
-Moving a sample to another SDK involves more than replacing imports. I built a workflow that plans the migration, uses an agent to make the changes, then validates them before publishing a patch for review. The contribution also included seven migrated .NET samples.
+The Teams SDK changes frequently, including breaking changes that we need to reflect in our Agents SDK samples. I built an AI-assisted workflow to keep those samples up to date: it plans the changes, applies them, and validates a patch before publishing it for review.
 
 I also wrote reusable skills for Bot Framework migrations and production-readiness checks, with documentation and runnable examples.
 
 [Workflow PR](https://github.com/microsoft/Agents/pull/726) · [More detail](case-studies/ai-skills-and-automation.md)
 
-## Fixing storage bugs
+## Improving storage behavior and flexibility
 
-I fixed .NET storage issues where stale writes could overwrite newer data, failed initialization prevented retries, and reads could affect stored data. I added 35 regression cases to cover those scenarios.
+Storage V2 addresses limitations dating back to Bot Framework, including user-reported ETag conflicts with Blob and Cosmos storage. I ported V2 from .NET to JavaScript, adding more control over writes, version checks and expiry while keeping the existing contract as the default.
 
-I also ported Storage V2 from .NET to JavaScript, keeping the existing storage contract as the default so consumers could continue using it.
+Separately, I fixed .NET storage bugs involving stale writes, initialization retries and data isolation, with 35 regression cases.
 
-[Storage fixes PR](https://github.com/microsoft/Agents-for-net/pull/1053) · [More detail](case-studies/storage-correctness.md)
+[Storage V2 PR](https://github.com/microsoft/Agents-for-js/pull/1272) · [Storage fixes PR](https://github.com/microsoft/Agents-for-net/pull/1053) · [More detail](case-studies/storage-correctness.md)
 
 ## Updating authentication without forcing API changes
 
