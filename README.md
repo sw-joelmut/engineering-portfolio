@@ -42,5 +42,6 @@ I investigated HTTP 504 failures affecting a Microsoft customer's Bot Framework 
 
 ## Other work
 
+- **Unblocking a legacy release:** during temporary team-lead coverage, I took ownership of helping restore an unfamiliar project's Azure DevOps build and release process. The work involved environment fixes, compiling C++ and connecting it to Node.js through node-gyp. [Details](case-studies/testing-and-infrastructure.md#recovering-a-legacy-build-and-release).
 - **Tracing and rate limiting:** added a way to filter automatic typing activity from traces and configurable rate-limit rules. Also helped integrate the team's OpenTelemetry work. [Details and PRs](case-studies/observability-and-reliability.md).
 - **Test infrastructure:** added setup and cleanup for authentication-test resources, and changed consumer tests to show results separately for each TypeScript version. [Details and PRs](case-studies/testing-and-infrastructure.md).
