@@ -34,6 +34,12 @@ I added the connection between Copilot Studio Client and WebChat, including acti
 
 [Integration PR](https://github.com/microsoft/Agents-for-js/pull/398) · [More detail](case-studies/webchat-integration.md)
 
+## Troubleshooting production timeouts
+
+I investigated HTTP 504 failures affecting a Microsoft customer's Bot Framework application under load. The work involved connection reuse, Azure networking and SDK configuration fixes. Later validation runs with up to 5,000 simulated clients showed no HTTP 504 errors, although one run hit rate limits.
+
+[Investigation details](case-studies/observability-and-reliability.md#troubleshooting-a-customers-http-504-failures)
+
 ## Other work
 
 - **Tracing and rate limiting:** added a way to filter automatic typing activity from traces and configurable rate-limit rules. Also helped integrate the team's OpenTelemetry work. [Details and PRs](case-studies/observability-and-reliability.md).

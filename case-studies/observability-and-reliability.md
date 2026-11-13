@@ -9,3 +9,11 @@ I also implemented configurable rate limiting before activity routing. Rules can
 For the broader OpenTelemetry integration, I combined the team's branch, resolved conflicts and fixed loader/type issues. The instrumentation itself includes work from multiple contributors.
 
 PRs: [Typing traces #1265](https://github.com/microsoft/Agents-for-js/pull/1265) · [Rate limiting #1187](https://github.com/microsoft/Agents-for-js/pull/1187) · [Telemetry integration #1056](https://github.com/microsoft/Agents-for-js/pull/1056)
+
+## Troubleshooting a customer's HTTP 504 failures
+
+I helped investigate HTTP 504 failures affecting a Microsoft customer's Bot Framework application under load. I reproduced the failures with root and skill bots in Azure, compared configurations, and traced issues involving connection reuse and SNAT port exhaustion.
+
+The work included HTTP connection settings, fixes to how those settings reached internal services, and a serialization fix to keep connection options out of persisted state. I documented the findings and the SDK and Azure configuration changes for the customer.
+
+Later load-test runs with up to 5,000 simulated clients showed no HTTP 504 errors. One run still hit HTTP 429 rate limits. These were validation runs, rather than a measurement of the customer's production uptime.
