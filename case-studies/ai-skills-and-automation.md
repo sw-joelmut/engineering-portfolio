@@ -1,38 +1,14 @@
-# AI skills and Teams sample automation
+# Teams sample automation and AI skills
 
-[Back to the portfolio](../README.md)
+[Back](../README.md) · Microsoft Agents · 2026
 
-**Focus:** agent workflows, reusable skills, validation and developer documentation.
+I built a workflow to move Teams .NET samples to the Agents SDK. It separates planning, implementation and publication: the plan pins the source revisions, an agent applies the changes, and validation runs before a patch is published for review. The migration job has no repository-write credentials.
 
-**Public work:** Microsoft Agents, 2026.
+The contribution included seven migrated samples. I checked the workflow with automated tests and manual runs; the PR records 19 passing automation tests, with the optional live integration test skipped.
 
-## Problem
+I also worked on two reusable skills:
 
-Migrating a sample between SDKs requires more than changing imports. Handlers, state, authentication, manifests and dependencies must remain coherent. An agent can produce plausible code while overlooking those contracts. Repeated migrations also need a consistent way to plan, validate and review changes.
+- **Bot Framework migration:** guidance for handlers, state, dialogs, hosting and authentication, including cases that need a rewrite or a decision rather than a direct replacement.
+- **Production readiness:** a guide and skill with a runnable JavaScript reference sample covering configuration, identity, persistent state, telemetry, health checks and deployment guidance.
 
-## My contribution
-
-I authored the upstream pull requests for a Teams-to-Agents .NET sample synchronization workflow, a Bot Framework migration skill, and a JavaScript production-readiness guide and skill. These are related contributions within a collaborative Microsoft open-source project.
-
-The synchronization work combined a frozen migration plan, agent-assisted implementation, validation and patch publication, alongside seven migrated .NET samples. The workflow separates planning, migration and publication into distinct jobs, with plans, patches and diagnostics available as artifacts. [Teams synchronization PR #726](https://github.com/microsoft/Agents/pull/726).
-
-## Design choices and constraints
-
-- **Separate generation from publication.** Validation and patch verification sit between agent-produced changes and repository publication. The migration job is not given repository-write credentials.
-- **Make the plan explicit.** Pin the source/base revisions and freeze the migration plan before implementation, so the intended scope can be inspected.
-- **Encode repeatable guidance.** The migration skill classifies work as direct migration, rewrite, decision or unsupported, and covers handlers, state, dialogs, hosting and authentication. This makes uncertainty visible instead of assuming every API has a direct replacement.
-- **Treat production readiness as an evidence process.** The production skill provides discovery, assessment, implementation, verification and handoff guidance. It does not certify deployment readiness without deployed evidence.
-
-These are the mechanisms implemented in the linked work. They should not be read as a claim that agent execution is a proven security sandbox or that every migration can run unattended.
-
-## Validation and outcome
-
-The original synchronization PR reports 19 passing automation tests, with an opt-in live integration test skipped, plus a successful build and manual workflow exercises. Tests cover aspects of the workflow rather than establishing general correctness for arbitrary generated code.
-
-The migration skill includes a migration map and verification/reporting requirements. The production-readiness work adds an executable reference sample, configuration and identity checks, durable state, telemetry, health probes, and deployment/rollback guidance. These deliverables turn the approach into something another engineer can inspect and use; no measured time-saving or adoption figure is claimed.
-
-## Original contributions
-
-- [Teams sample synchronization #726](https://github.com/microsoft/Agents/pull/726) — merged September 25, 2026.
-- [Bot Framework migration skill #667](https://github.com/microsoft/Agents/pull/667) — merged August 20, 2026.
-- [Production-readiness guide, skill and samples #710](https://github.com/microsoft/Agents/pull/710) — merged October 28, 2026.
+PRs: [Sample workflow #726](https://github.com/microsoft/Agents/pull/726) · [Migration skill #667](https://github.com/microsoft/Agents/pull/667) · [Production guide and skill #710](https://github.com/microsoft/Agents/pull/710)

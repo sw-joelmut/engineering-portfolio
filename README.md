@@ -1,39 +1,40 @@
-# Joel Mut | Engineering portfolio
+# Joel Mut — Selected engineering work
 
-Senior Software Engineer working across SDKs, developer platforms and AI-agent engineering. I turn complex problems into practical implementations, with particular attention to debugging, compatibility, validation and developer experience.
+I'm a Senior Software Engineer at SOUTHWORKS, working with Microsoft as a vendor on Bot Framework and Microsoft 365 Agents SDK. Here are a few examples of what I've worked on.
 
-The work featured here was contributed to Microsoft open-source projects through my vendor role at SOUTHWORKS. It spans Microsoft Bot Framework and Microsoft 365 Agents SDK. The linked pull requests show the implementation and review context; this portfolio explains the problem, contribution and engineering choices.
+[GitHub](https://github.com/sw-joelmut) · [LinkedIn](https://www.linkedin.com/in/joel-mut/)
 
-[GitHub profile](https://github.com/sw-joelmut) · [LinkedIn](https://www.linkedin.com/in/joel-mut/)
+## Automating Teams sample migrations
 
-## Start with these three
+Moving a sample to another SDK involves more than replacing imports. I built a workflow that plans the migration, uses an agent to make the changes, then validates them before publishing a patch for review. The contribution also included seven migrated .NET samples.
 
-### AI skills and Teams sample automation
+I also wrote reusable skills for Bot Framework migrations and production-readiness checks, with documentation and runnable examples.
 
-Connecting agent-assisted implementation with frozen plans, deterministic validation and reviewable patches. Includes reusable migration skills and production-readiness guidance.
+[Workflow PR](https://github.com/microsoft/Agents/pull/726) · [More detail](case-studies/ai-skills-and-automation.md)
 
-[Read the case study](case-studies/ai-skills-and-automation.md)
+## Fixing storage bugs
 
-### Storage contracts and correctness
+I fixed .NET storage issues where stale writes could overwrite newer data, failed initialization prevented retries, and reads could affect stored data. I added 35 regression cases to cover those scenarios.
 
-Evolving storage APIs while retaining existing contracts, then addressing stale writes, initialization failures and data isolation with targeted regression coverage.
+I also ported Storage V2 from .NET to JavaScript, keeping the existing storage contract as the default so consumers could continue using it.
 
-[Read the case study](case-studies/storage-correctness.md)
+[Storage fixes PR](https://github.com/microsoft/Agents-for-net/pull/1053) · [More detail](case-studies/storage-correctness.md)
 
-### Authentication and backward compatibility
+## Updating authentication without forcing API changes
 
-Porting managed identity between SDK implementations and migrating authentication internals while preserving public compatibility where required.
+I migrated Bot Framework's .NET authentication internals from ADAL to MSAL while keeping the public interfaces compatible. One legacy dependency had to stay because removing it would have broken those interfaces.
 
-[Read the case study](case-studies/authentication-and-compatibility.md)
+Other authentication work included porting managed identity to JavaScript and refactoring authorization in the Agents SDK.
 
-## More engineering work
+[MSAL migration PR](https://github.com/microsoft/botbuilder-dotnet/pull/6605) · [More detail](case-studies/authentication-and-compatibility.md)
 
-- [Copilot Studio Client and WebChat integration](case-studies/webchat-integration.md): browser and Node.js compatibility, build configuration and activity exchange.
-- [Observability and runtime reliability](case-studies/observability-and-reliability.md): telemetry integration, trace filtering and configurable rate limiting.
-- [Testing and developer infrastructure](case-studies/testing-and-infrastructure.md): authentication-test resources, consumer compatibility checks and diagnosable test execution.
+## Connecting Copilot Studio to WebChat
 
-## How to read these examples
+I added the connection between Copilot Studio Client and WebChat, including activity exchange, browser builds and a sample showing how to configure authentication. I checked that the new WebChat sample worked and that the existing console sample still worked.
 
-Each case study separates my contribution from the broader team effort and links to the original public work. Design explanations describe the implementation and its constraints; they do not imply sole ownership of a whole SDK. Test counts are reported validation scope, not customer-impact metrics. A merged contribution is not by itself proof of a particular release or production adoption.
+[Integration PR](https://github.com/microsoft/Agents-for-js/pull/398) · [More detail](case-studies/webchat-integration.md)
 
-These are selected examples through November 2026, not an exhaustive record of my work. Source code stays in the original repositories under their respective licenses. This repository contains summaries and links, not copies of the Microsoft codebases.
+## Other work
+
+- **Tracing and rate limiting:** added a way to filter automatic typing activity from traces and configurable rate-limit rules. Also helped integrate the team's OpenTelemetry work. [Details and PRs](case-studies/observability-and-reliability.md).
+- **Test infrastructure:** added setup and cleanup for authentication-test resources, and changed consumer tests to show results separately for each TypeScript version. [Details and PRs](case-studies/testing-and-infrastructure.md).
